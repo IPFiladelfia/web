@@ -15,27 +15,27 @@ const navItems: NavbarItemProps[] = [
   {
     title: "A Igreja",
     href: "/",
-    subitems: [
-      {
-        title: "Crenças",
-        href: "/",
-      },
-      {
-        title: "Visão e Valores",
-        href: "/",
-      },
-      {
-        title: "Equipe",
-        href: "/",
-      },
-    ],
+    // subitems: [
+    //   {
+    //     title: "Crenças",
+    //     href: "/",
+    //   },
+    //   {
+    //     title: "Visão e Valores",
+    //     href: "/",
+    //   },
+    //   {
+    //     title: "Equipe",
+    //     href: "/",
+    //   },
+    //   {
+    //     title: "Redes e Projetos",
+    //     href: "/",
+    //   },
+    // ],
   },
   {
     title: "Agenda",
-    href: "/",
-  },
-  {
-    title: "Redes e Projetos",
     href: "/",
   },
   {
@@ -68,9 +68,7 @@ export const Navbar = () => {
         role="navbar"
         className={clsx(
           "fixed top-0 left-0 right-0 bottom-0 bg-white lg:bg-transparent flex flex-col items-center justify-center text-center text-grey-600 font-medium gap-4 text-xl lg:flex lg:relative lg:flex-row lg:text-base lg:text-white lg:gap-6",
-          {
-            hidden: !isNavbarOpen,
-          }
+          { hidden: !isNavbarOpen }
         )}
       >
         {navItems.map((item) => (
@@ -78,7 +76,7 @@ export const Navbar = () => {
         ))}
       </ul>
 
-      <div className="lg:hidden">
+      <div className="lg:hidden z-[1001]">
         <Hamburger
           color={isNavbarOpen ? primaryColor : "white"}
           toggled={isNavbarOpen}
