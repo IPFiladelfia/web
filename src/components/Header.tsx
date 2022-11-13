@@ -31,7 +31,7 @@ export const Header = () => {
         }
       )}
     >
-      <div className="flex items-center justify-between mx-auto px-4 py-5 xl:container">
+      <div className="flex items-center justify-between mx-auto px-4 py-5 xl:container xl:px-0">
         <h1>
           <Link href="/">
             <Logo />

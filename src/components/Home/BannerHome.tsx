@@ -13,9 +13,9 @@ export const BannerHome = () => {
           alt=""
         />
         <div className="container mx-auto z-10">
-          <p className="text-white font-medium text-3xl z-10 lg:max-w-[50rem]">
+          <p className="text-white font-medium text-2xl lg:text-3xl z-10 lg:max-w-[50rem]">
             Uma igreja que
-            <span className="block text-6xl font-extrabold">
+            <span className="block text-5xl lg:text-6xl font-extrabold">
               ama, serve, evangeliza, faz discípulos e os envia
             </span>
           </p>

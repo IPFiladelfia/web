@@ -20,6 +20,11 @@ module.exports = {
         },
       },
     },
+    container: {
+      padding: {
+        DEFAULT: "1rem",
+      },
+    },
   },
   plugins: [],
   important: true,

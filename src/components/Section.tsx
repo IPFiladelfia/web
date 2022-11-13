@@ -7,8 +7,6 @@ interface SectionProps {
 
 export const Section = ({ children, className }: SectionProps) => {
   return (
-    <div className={clsx("container mx-auto py-24 px-4", className)}>
-      {children}
-    </div>
+    <div className={clsx("container mx-auto py-24", className)}>{children}</div>
   );
 };
