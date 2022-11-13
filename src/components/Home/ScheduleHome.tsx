@@ -57,7 +57,7 @@ export const ScheduleHome = () => {
           after:h-[120%] 
           after:-z-10 
           after:translate-y-[-50%] 
-          after:w-[60%] 
+          after:w-[50%] 
           after:bg-primary-900
           before:right-0 
           before:absolute 
@@ -66,7 +66,7 @@ export const ScheduleHome = () => {
           before:h-[110%] 
           before:-z-[5] 
           before:translate-y-[-50%] 
-          before:w-[65%] 
+          before:w-[75%] 
           before:bg-secondary
         "
       >
