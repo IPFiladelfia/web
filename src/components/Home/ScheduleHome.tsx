@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
+import { SectionTitle } from "../common/SectionTitle";
 import { Section } from "../Section";
 import { ScheduleDateTitle } from "./ScheduleDateTitle";
 
@@ -30,7 +31,7 @@ export const ScheduleHome = () => {
   return (
     <Section className="flex flex-col lg:flex-row justify-between items-center">
       <div>
-        <h2 className="text-5xl font-bold">Programação</h2>
+        <SectionTitle title="Programação" />
         <ul>
           {schedule.map((date, index) => (
             <li key={date.date} className="mt-6">

@@ -1,10 +1,11 @@
 import { BlogPreview } from "../common/BlogPreview";
+import { SectionTitle } from "../common/SectionTitle";
 import { Section } from "../Section";
 
 export const LatestPosts = () => {
   return (
     <Section>
-      <h2 className="text-4xl font-bold md:w-96">O que tem rolado por aqui</h2>
+      <SectionTitle title="O que tem rolado por aqui" className="md:w-96" />
 
       <div className="flex flex-col md:flex-row items-center justify-around mt-9 flex-wrap">
         <BlogPreview

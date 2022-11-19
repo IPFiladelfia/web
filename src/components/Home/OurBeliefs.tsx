@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "../Button";
+import { SectionTitle } from "../common/SectionTitle";
 
 export const OurBeliefs = () => {
   return (
@@ -14,7 +15,7 @@ export const OurBeliefs = () => {
           />
         </div>
         <div className="text-white flex flex-col justify-center">
-          <h2 className="text-4xl font-bold mb-2">No que cremos</h2>
+          <SectionTitle title="No que cremos" className="mb-2" />
           <p>Conheça nossa profissão de fé e o catecismo que seguimos</p>
           <Button href="rjdsij">Conheça</Button>
         </div>

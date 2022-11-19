@@ -27,7 +27,7 @@ export const Header = () => {
       className={clsx(
         "fixed z-[1000] w-full border-white border-b-[1px] transition-colors",
         {
-          "bg-primary-900": navbarSolidBackground,
+          "bg-primary-900 border-transparent": navbarSolidBackground,
         }
       )}
     >
