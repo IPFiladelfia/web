@@ -18,11 +18,11 @@ const navItems: NavbarItemProps[] = [
     subitems: [
       {
         title: "Quem somos",
-        href: "/",
+        href: "/quem-somos",
       },
       {
         title: "Nossa equipe",
-        href: "/",
+        href: "/nossa-equipe",
       },
       {
         title: "Redes e Projetos",

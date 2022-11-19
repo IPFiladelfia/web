@@ -5,6 +5,7 @@ import { Logo } from "./Logo";
 import { Navbar } from "./Navbar";
 
 const MINIMUM_HEIGHT_TO_SHOW_SOLID_BACKGROUND = 200;
+export const MINIMUM_HEIGHT_HEADER = "6.125rem";
 
 export const Header = () => {
   const [navbarSolidBackground, setNavbarSolidBackground] = useState(false);
@@ -31,7 +32,7 @@ export const Header = () => {
         }
       )}
     >
-      <div className="flex items-center justify-between mx-auto px-4 py-5 xl:container xl:px-0">
+      <div className="flex items-center justify-between mx-auto px-4 xl:container xl:px-0 h-20">
         <h1>
           <Link href="/">
             <Logo />
