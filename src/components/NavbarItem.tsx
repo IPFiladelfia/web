@@ -62,13 +62,21 @@ export const NavbarItem = ({ href, title, subitems }: NavbarItemProps) => {
       {subitems && (
         <ul
           className={clsx(
-            `text-base hidden flex-col gap-2 text-grey-400 mt-2 overflow-hidden lg:m-0 lg:absolute lg:pt-4 lg:left-[50%] lg:translate-x-[-50%] lg:h-auto lg:text-white lg:gap-0 lg:hover:flex`
+            `lg:text-sm mt-2 lg:mt-0 text-base font-normal hidden flex-col gap-2 text-grey-400 overflow-hidden lg:m-0 lg:absolute lg:pt-4 lg:left-[50%] lg:translate-x-[-50%] lg:h-auto lg:gap-0 lg:hover:flex`
           )}
         >
-          {subitems.map((subitem) => (
+          {subitems.map((subitem, index) => (
             <li key={subitem.href}>
               <Link
-                className="lg:whitespace-nowrap lg:block lg:py-2 lg:px-8 lg:bg-primary-900"
+                className={clsx(
+                  "lg:whitespace-nowrap lg:block lg:py-2 lg:px-8 lg:bg-grey-900 lg:text-white lg:text-opacity-75 lg:hover:text-opacity-100 transition-colors",
+                  {
+                    "lg:pt-4 lg:border-t-2 lg:border-t-white": !index,
+                  },
+                  {
+                    "lg:pb-4": index === subitems.length - 1,
+                  }
+                )}
                 href={subitem.href}
               >
                 {subitem.title}

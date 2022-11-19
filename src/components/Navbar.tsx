@@ -15,24 +15,20 @@ const navItems: NavbarItemProps[] = [
   {
     title: "A Igreja",
     href: "/",
-    // subitems: [
-    //   {
-    //     title: "Crenças",
-    //     href: "/",
-    //   },
-    //   {
-    //     title: "Visão e Valores",
-    //     href: "/",
-    //   },
-    //   {
-    //     title: "Equipe",
-    //     href: "/",
-    //   },
-    //   {
-    //     title: "Redes e Projetos",
-    //     href: "/",
-    //   },
-    // ],
+    subitems: [
+      {
+        title: "Quem somos",
+        href: "/",
+      },
+      {
+        title: "Nossa equipe",
+        href: "/",
+      },
+      {
+        title: "Redes e Projetos",
+        href: "/",
+      },
+    ],
   },
   {
     title: "Agenda",
