@@ -45,7 +45,7 @@ export const NavbarItem = ({ href, title, subitems }: NavbarItemProps) => {
   const [showSubItems, setShowSubItems] = useState(false);
 
   return (
-    <li className="relative [&>ul]:hover:flex [&>span]:hover:after:rotate-[45deg] font-semibold">
+    <li className="relative [&>ul]:hover:flex [&>span]:hover:after:rotate-[45deg] font-semibold block">
       <NavbatItemWrapper
         href={href}
         subitems={subitems}
@@ -62,7 +62,7 @@ export const NavbarItem = ({ href, title, subitems }: NavbarItemProps) => {
       {subitems && (
         <ul
           className={clsx(
-            `lg:text-sm mt-2 lg:mt-0 text-base font-normal hidden flex-col gap-2 text-grey-400 overflow-hidden lg:m-0 lg:absolute lg:pt-4 lg:left-[50%] lg:translate-x-[-50%] lg:h-auto lg:gap-0 lg:hover:flex`
+            `mt-2 lg:mt-0 font-normal hidden flex-col gap-2 text-grey-400 overflow-hidden lg:m-0 lg:absolute lg:pt-4 lg:left-[50%] lg:translate-x-[-50%] lg:h-auto lg:gap-0 lg:hover:flex`
           )}
         >
           {subitems.map((subitem, index) => (

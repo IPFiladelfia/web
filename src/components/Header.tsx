@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { Navbar } from "./Navbar";
 
-const MINIMUM_HEIGHT_TO_SHOW_SOLID_BACKGROUND = 200;
+const MINIMUM_HEIGHT_TO_SHOW_SOLID_BACKGROUND = 50;
 export const MINIMUM_HEIGHT_HEADER = "6.125rem";
 
 export const Header = () => {
@@ -26,13 +26,13 @@ export const Header = () => {
   return (
     <div
       className={clsx(
-        "fixed z-[1000] w-full border-white border-b-[1px] transition-colors",
+        "fixed z-[1000] w-full border-white border-b-[1px] transition-colors py-8",
         {
           "bg-primary-900 border-transparent": navbarSolidBackground,
         }
       )}
     >
-      <div className="flex items-center justify-between mx-auto px-4 xl:container xl:px-0 h-20">
+      <div className="flex items-center justify-between mx-auto px-4 xl:container xl:px-0">
         <h1>
           <Link href="/">
             <Logo />

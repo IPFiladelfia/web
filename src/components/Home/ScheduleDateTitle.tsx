@@ -12,7 +12,7 @@ export const ScheduleDateTitle = ({
   return (
     <h3
       className={clsx(
-        "text-2xl font-semibold italic after:content-[''] after:w-full relative after:h-3 after:bg-secondary after:absolute after:bottom-0 after:left-0 inline-block after:-z-[1] after:opacity-70",
+        "text-2xl text-grey-900 font-semibold italic after:content-[''] after:w-full relative after:h-3 after:bg-secondary after:absolute after:bottom-0 after:left-0 inline-block after:-z-[1] after:opacity-70",
         className
       )}
     >

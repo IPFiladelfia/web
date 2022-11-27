@@ -9,14 +9,14 @@ interface SectionTitleProps {
 export const SectionTitle = ({
   title,
   className,
-  color = "white",
+  color = "black",
 }: SectionTitleProps) => {
   return (
     <h2
       className={clsx(
         "text-4xl lg:text-5xl font-bold",
         className,
-        `text-${color}`
+        `text-${color === "white" ? "white" : "grey-900"}`
       )}
     >
       {title}

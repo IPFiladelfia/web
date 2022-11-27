@@ -18,14 +18,14 @@ export const Footer = () => {
     <footer className="py-16 bg-grey-900 text-white flex flex-col items-center text-center md:flex-row md:flex-wrap lg:flex-nowrap md:justify-center lg:px-8 gap-8">
       <Column>
         <h3 className="text-lg font-bold">Igreja Online</h3>
-        <p className="text-sm">Siga-nos em nossas plataformas digitais</p>
+        <p>Siga-nos em nossas plataformas digitais</p>
         <div className="mt-2">
           <SocialMedia />
         </div>
       </Column>
       <Column>
         <h3 className="text-lg font-bold">Secretaria</h3>
-        <div className="text-sm">
+        <div>
           <p>Temporariamente no Templo Filadélfia</p>
           <p>(99) 3333-3333</p>
           <p>Rua João Ferreira da Silva, 84 {"\n"} Além Ponte, Sorocaba/SP</p>
@@ -34,11 +34,11 @@ export const Footer = () => {
       </Column>
       <Column>
         <h3 className="text-lg font-bold">Templo Filadélfia</h3>
-        <div className="text-sm">
+        <div>
           <p>Rua João Ferreira da Silva, 84 {"\n"} Além Ponte, Sorocaba/SP</p>
         </div>
         <h3 className="text-lg font-bold">Espaço Filadélfia</h3>
-        <div className="text-sm">
+        <div>
           <p>Rua João Ferreira da Silva, 84 {"\n"} Além Ponte, Sorocaba/SP</p>
         </div>
       </Column>

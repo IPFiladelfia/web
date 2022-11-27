@@ -1,0 +1,18 @@
+- [ ] Redes e Projetos
+  - [ ] Página semelhante à de Nosso Time;
+    - [ ]Frontend;
+    - [ ]Backend;
+- [ ] Agenda;
+  - [ ] Exibir eventos em dias específicos;
+    - [ ]Frontend;
+    - [ ]Backend;
+- [ ] Contribuições;
+  - [ ] Mudar o nome no header;
+  - [ ] Página;
+- [ ] Pedidos de Oração;
+  - [ ] Frontend;
+  - [ ] Backend;
+- [ ] i18n;
+- [ ] Ajustar tamanhos header;
+- [ ] Deixar uma api para controlar os itens do menu;
+- [ ] Ajustar a exibição/ocultação dos itens do submenu;

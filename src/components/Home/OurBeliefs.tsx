@@ -4,7 +4,7 @@ import { SectionTitle } from "../common/SectionTitle";
 
 export const OurBeliefs = () => {
   return (
-    <div className="bg-primary-900 h-80">
+    <div className="bg-primary-800 h-80">
       <div className="container flex items-center justify-center lg:grid lg:grid-cols-2 h-full">
         <div className="w-full h-full relative overflow-hidden hidden lg:block">
           <Image
@@ -15,7 +15,7 @@ export const OurBeliefs = () => {
           />
         </div>
         <div className="text-white flex flex-col justify-center">
-          <SectionTitle title="No que cremos" className="mb-2" />
+          <SectionTitle color="white" title="No que cremos" className="mb-2" />
           <p>Conheça nossa profissão de fé e o catecismo que seguimos</p>
           <Button href="rjdsij">Conheça</Button>
         </div>
