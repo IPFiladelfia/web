@@ -1,12 +1,10 @@
-import { gql, useQuery } from "@apollo/client";
-import { PageHeader } from "../components/common/PageHeader";
-import { PageTitle } from "../components/common/PageTitle";
-import apolloClient from "../../apollo-client";
-import { GET_TEAM_MEMBERS_BY_TYPE } from "../queries/queries";
-import { teamMemberTitles } from "../utils/TeamMemberTitles";
+import { PageHeader } from "../../components/common/PageHeader";
+import { PageTitle } from "../../components/common/PageTitle";
+import apolloClient from "../../../apollo-client";
+import { GET_TEAM_MEMBERS_BY_TYPE } from "../../queries/queries";
+import { teamMemberTitles } from "../../utils/TeamMemberTitles";
 import React from "react";
-import Image from "next/image";
-import { TeamMember } from "../components/ourTeam/TeamMember";
+import { TeamMember } from "../../components/ourTeam/TeamMember";
 
 export enum TeamMemberTypeEnum {
   PASTOR = "pastor",

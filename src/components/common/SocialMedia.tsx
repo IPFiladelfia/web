@@ -27,7 +27,7 @@ export const SocialMedia = () => {
     <ul className="flex gap-4">
       {socialMedia.map((item) => (
         <li key={item.username}>
-          <Link href={item.url}>
+          <Link target="_blank" href={item.url}>
             <item.icon size={28} />
           </Link>
         </li>

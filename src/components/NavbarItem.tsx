@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { clsx } from "clsx";
+import { NavbatItemWrapper } from "./NavbarItemWrapper";
+import { useRouter } from "next/router";
 
-interface NavbarItemBase {
+export interface NavbarItemBase {
   title: string;
   href: string;
 }
@@ -11,50 +13,41 @@ export interface NavbarItemProps extends NavbarItemBase {
   subitems?: NavbarItemBase[];
 }
 
-interface NavtabItemWrapperProps {
-  children: React.ReactNode;
-  href: string;
-  subitems?: NavbarItemBase[];
-  setShowSubItems: React.Dispatch<React.SetStateAction<boolean>>;
-  showSubItems: boolean;
-  className: string;
-}
+const isCurrentRoute = (
+  href: string,
+  currentRoute: string,
+  isSubitem?: boolean
+) => {
+  if (isSubitem) {
+    return href === currentRoute;
+  }
 
-const NavbatItemWrapper = ({
-  children,
-  href,
-  subitems,
-  setShowSubItems,
-  showSubItems,
-  className,
-}: NavtabItemWrapperProps) => {
-  if (subitems)
-    return (
-      <span
-        className={className}
-        onClick={() => setShowSubItems(!showSubItems)}
-        role="button"
-      >
-        {children}
-      </span>
-    );
-  return <Link href={href}>{children}</Link>;
+  const currentRoutePaths = currentRoute.slice(1).split("/");
+  return currentRoutePaths.includes(href.slice(1));
 };
 
 export const NavbarItem = ({ href, title, subitems }: NavbarItemProps) => {
   const [showSubItems, setShowSubItems] = useState(false);
+  const currentRoute = useRouter().pathname;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia("(max-width: 640px)").matches);
+  }, []);
 
   return (
-    <li className="relative [&>ul]:hover:flex [&>span]:hover:after:rotate-[45deg] font-semibold block">
+    <li
+      tabIndex={0}
+      className="relative lg:h-full group text-xl lg:text-lg text-black lg:text-white font-medium before:content-[''] before:w-full before:r-0 before:l-0"
+    >
       <NavbatItemWrapper
         href={href}
         subitems={subitems}
         setShowSubItems={setShowSubItems}
         showSubItems={showSubItems}
-        className={clsx("relative", {
-          "after:content-['+'] after:bg-red after:absolute after:top-[50%] after:translate-y-[-50%] after:-right-4 transition-transform ease-linear mr-2":
-            subitems,
-        })}
+        classes={`lg:h-full flex items-center justify-center py-4 lg:py-0 ${
+          isCurrentRoute(href, currentRoute) && "border-white border-t-4"
+        }`}
       >
         {title}
       </NavbatItemWrapper>
@@ -62,19 +55,21 @@ export const NavbarItem = ({ href, title, subitems }: NavbarItemProps) => {
       {subitems && (
         <ul
           className={clsx(
-            `mt-2 lg:mt-0 font-normal hidden flex-col gap-2 text-grey-400 overflow-hidden lg:m-0 lg:absolute lg:pt-4 lg:left-[50%] lg:translate-x-[-50%] lg:h-auto lg:gap-0 lg:hover:flex`
+            "hidden flex-col items-center justify-center text-center lg:absolute lg:translate-x-1/2 lg:right-1/2 top-[90%]",
+            isMobile ? "group-focus:flex" : "lg:group-hover:flex"
           )}
         >
-          {subitems.map((subitem, index) => (
+          {subitems.map((subitem) => (
             <li key={subitem.href}>
               <Link
                 className={clsx(
-                  "lg:whitespace-nowrap lg:block lg:py-2 lg:px-8 lg:bg-grey-900 lg:text-white lg:text-opacity-75 lg:hover:text-opacity-100 transition-colors",
+                  "block text-lg text-gray-500 lg:text-white lg:w-52 py-1 lg:py-2 px-4 lg:bg-[#000000] lg:bg-opacity-[85%] hover:lg:bg-opacity-100 transition-colors duration-300",
                   {
-                    "lg:pt-4 lg:border-t-2 lg:border-t-white": !index,
-                  },
-                  {
-                    "lg:pb-4": index === subitems.length - 1,
+                    "border-white border-l-4": isCurrentRoute(
+                      subitem.href,
+                      currentRoute,
+                      true
+                    ),
                   }
                 )}
                 href={subitem.href}

@@ -26,13 +26,13 @@ export const Header = () => {
   return (
     <div
       className={clsx(
-        "fixed z-[1000] w-full border-white border-b-[1px] transition-colors py-8",
+        "fixed z-[1000] w-full border-white border-b-[1px] transition-colors",
         {
           "bg-primary-900 border-transparent": navbarSolidBackground,
         }
       )}
     >
-      <div className="flex items-center justify-between mx-auto px-4 xl:container xl:px-0">
+      <div className="flex items-center justify-between mx-auto container xl:px-0 h-20">
         <h1>
           <Link href="/">
             <Logo />

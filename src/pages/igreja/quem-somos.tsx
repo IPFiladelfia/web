@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { PageHeader } from "../components/common/PageHeader";
-import { PageTitle } from "../components/common/PageTitle";
-import { SectionTitle } from "../components/common/SectionTitle";
-import { Section } from "../components/Section";
+import { PageHeader } from "../../components/common/PageHeader";
+import { PageTitle } from "../../components/common/PageTitle";
+import { SectionTitle } from "../../components/common/SectionTitle";
+import { Section } from "../../components/Section";
 
 const QuemSomos = () => {
   return (
