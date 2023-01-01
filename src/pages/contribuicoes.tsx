@@ -1,8 +1,25 @@
 import Head from "next/head";
 import Image from "next/image";
+import { CopyField } from "../components/common/CopyField";
 import { PageHeader } from "../components/common/PageHeader";
+import { BankAccount } from "../components/contributions/BankAccount";
+import { IBankAccount } from "../types";
 
-const QuemSomos = () => {
+const QuemSomos = ({ pix, email }: { pix: string; email: string }) => {
+  const bankAccounts: IBankAccount[] = [
+    {
+      url: "/assets/banco-do-brasil.svg",
+      title: "Banco do Brasil",
+      account: "32000-5",
+      agency: "2923-8",
+    },
+    {
+      url: "/assets/banco-itau.svg",
+      title: "Banco Itaú",
+      account: "10782-1",
+      agency: "0513",
+    },
+  ];
   return (
     <>
       <Head>
@@ -32,16 +49,59 @@ const QuemSomos = () => {
           nos nossos cultos e também através das contas da Igreja Presbiteriana
           Filadélfia de Sorocaba:
         </p>
-        <Image
-          width={1100}
-          height={880}
-          className="mx-auto"
-          src="/assets/about-the-church.jpeg"
-          alt="Uma imagem da igreja, tirada do fundo, mostrando a igreja cheia, com as luzes apagadas, e o povo de mãos dadas, com o Pastor Junior falando ao micronone na frente."
-        />
+        <div className="flex justify-center my-8">
+          <Image
+            className="opacity-25"
+            src="/assets/divider-icon.svg"
+            alt=""
+            width={48}
+            height={18}
+          />
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-center md:items-center gap-10 md:gap-20">
+          {bankAccounts.map((account) => (
+            <BankAccount
+              account={account.account}
+              agency={account.agency}
+              title={account.title}
+              url={account.url}
+              key={account.title}
+            />
+          ))}
+        </div>
+
+        <p className="text-center flex justify-center mt-8 text-xl font-semibold">
+          <CopyField value={pix} toastMessage="Pix copiado com sucesso!">
+            PIX: {pix}
+          </CopyField>
+        </p>
+
+        <p className="text-center flex justify-center mt-8">
+          Comprovantes de depósitos devem ser encaminhados para identificação e
+          registro no e-mail:
+          <CopyField
+            className="ml-2"
+            toastMessage="Email copiado com sucesso!"
+            value={email}
+          >
+            {email}
+          </CopyField>
+        </p>
       </div>
     </>
   );
 };
+
+export async function getStaticProps() {
+  const pix = process.env.CNPJ;
+  const email = process.env.EMAIL;
+  return {
+    props: {
+      pix,
+      email,
+    },
+  };
+}
 
 export default QuemSomos;
