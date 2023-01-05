@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { clsx } from "clsx";
 import { NavbatItemWrapper } from "./NavbarItemWrapper";
 import { useRouter } from "next/router";
+import { useDetectOutsideClick } from "../hooks/useOutsideClick";
 
 export interface NavbarItemBase {
   title: string;
@@ -29,14 +30,12 @@ const isCurrentRoute = (
 export const NavbarItem = ({ href, title, subitems }: NavbarItemProps) => {
   const [showSubItems, setShowSubItems] = useState(false);
   const currentRoute = useRouter().pathname;
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.matchMedia("(max-width: 640px)").matches);
-  }, []);
+  const navbarItemRef = useRef(null);
+  useDetectOutsideClick(navbarItemRef, () => setShowSubItems(false));
 
   return (
     <li
+      ref={navbarItemRef}
       tabIndex={0}
       className="relative lg:h-full group text-xl lg:text-lg text-black lg:text-white font-medium before:content-[''] before:w-full before:r-0 before:l-0"
     >
@@ -55,8 +54,8 @@ export const NavbarItem = ({ href, title, subitems }: NavbarItemProps) => {
       {subitems && (
         <ul
           className={clsx(
-            "hidden flex-col items-center justify-center text-center lg:absolute lg:translate-x-1/2 lg:right-1/2 top-[90%]",
-            isMobile ? "group-focus:flex" : "lg:group-hover:flex"
+            "flex-col items-center justify-center text-center lg:absolute lg:translate-x-1/2 lg:right-1/2 top-[90%]",
+            showSubItems ? "flex" : "hidden"
           )}
         >
           {subitems.map((subitem) => (
